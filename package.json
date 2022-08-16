@@ -1,0 +1,24 @@
+{
+  "name": "next-graphcms-stripe-tutorial",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@stripe/stripe-js": "^1.35.0",
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
+    "next": "12.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "stripe": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.4"
+  }
+}
