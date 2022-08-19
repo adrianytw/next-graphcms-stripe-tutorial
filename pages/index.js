@@ -27,12 +27,12 @@ export async function getStaticProps() {
   }
 }
 
-export default ({ products }) => {
+const main = ({ products }) => {
 
   return (
     products.map(({ name, slug, id, price }) => {
       return (
-        <div>
+        <div key={id}>
           <Link key={id} href={`/products/${slug}`}>
             {name}
           </Link>
@@ -41,3 +41,5 @@ export default ({ products }) => {
     })
   )
 }
+
+export default main

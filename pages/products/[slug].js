@@ -89,7 +89,7 @@ const ProductPage = ({ product }) => {
             <>{product.price}</>
 
             <div>
-                <Image src={image.url} width={160} height={90} layout="intrinsic" />
+                <Image src={image.url} width={160} height={90} layout="intrinsic" alt={product.name} />
                 <PayBtn slug={product.slug} />
             </div>
         </div>

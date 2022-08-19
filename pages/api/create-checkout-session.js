@@ -6,7 +6,7 @@ const graphcms = new GraphQLClient(`https://api-us-east-1.hygraph.com/v2/cl6k70m
 
 export default async (req, res) => {
     const { slug } = req.body
-    console.log(slug);
+
     // fetch product from graphcms
     const { product } = await graphcms.request(
         gql`
@@ -25,7 +25,7 @@ export default async (req, res) => {
     try {
         const session = await stripe.checkout.sessions.create({
             success_url: 'http://localhost:3000/?id={CHECKOUT_SESSION_ID}',
-            cancel_url: `http://localhost:300/products/${slug}`,
+            cancel_url: `http://localhost:3000/products/${slug}`,
             mode: 'payment',
             payment_method_types: ['card', 'ideal', 'giropay', 'sepa_debit'],
             line_items: [{
@@ -34,6 +34,9 @@ export default async (req, res) => {
                     currency: 'EUR',
                     product_data: {
                         name: product.name,
+                        metadata: {
+                            productSlug: slug
+                        }
                     },
                 },
                 quantity: 1,
